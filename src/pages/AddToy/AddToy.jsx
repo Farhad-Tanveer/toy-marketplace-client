@@ -20,7 +20,7 @@ const AddToy = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((error) => console.log(error));
+      .then((data) => console.log(data));
 
     console.log(data);
   };
