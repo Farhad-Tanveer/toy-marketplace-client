@@ -10,7 +10,7 @@ const Gallery = () => {
         <h1 className=" text-3xl font-bold">Dinosaur</h1>
         <div className=" my-10 w-1/2 mx-auto h-8 bg-yellow-500"></div>
       </div>
-      <div className=" grid grid-cols-3 gap-2 h-80">
+      <div className=" grid grid-cols-3 gap-2">
         <img
           className="w-full h-80 object-cover  rounded-md"
           src={img1}
@@ -42,6 +42,10 @@ const Gallery = () => {
           alt=""
         />
       </div>
+      <h1 className=" text-center mt-10 text-gray-500">
+        Step into a world of endless possibilities in our toy gallery, <br />{" "}
+        where curiosity is rewarded with a kaleidoscope of playful wonders!
+      </h1>
     </div>
   );
 };
