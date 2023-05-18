@@ -1,10 +1,8 @@
 import React from "react";
 import Swal from "sweetalert2";
 
-const AllToysCard = ({ toy }) => {
-  const { title, name, price, category, image, quantity } = toy;
-
-  const handleDelete = (id) => {};
+const AllToysCard = ({ toy, handleDelete }) => {
+  const { _id, title, name, price, category, image, quantity } = toy;
 
   return (
     <tr>
