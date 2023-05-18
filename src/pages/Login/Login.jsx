@@ -24,7 +24,7 @@ const Login = () => {
         const loggedUser = result.user;
         // console.log(loggedUser);
         // navigate(from, { replace: true });
-        navigate(from, { state: state, replace: false });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
 import { AuthContext } from "../../../providers/AuthProvider";
 
@@ -49,6 +49,16 @@ const Navbar = () => {
               <li>
                 <Link to="/alltoys">All Toys</Link>
               </li>
+              {user && (
+                <>
+                  <li>
+                    <NavLink to="/myToys">My Toys</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/addToys">Add A Toy</NavLink>
+                  </li>
+                </>
+              )}
               <li>
                 <Link to="blog">Blog</Link>
               </li>
@@ -61,13 +71,23 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <Link to="/alltoys">All Toys</Link>
+              <NavLink to="/alltoys">All Toys</NavLink>
             </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink to="/myToys">My Toys</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/addToys">Add A Toy</NavLink>
+                </li>
+              </>
+            )}
             <li>
-              <Link to="blog">Blog</Link>
+              <NavLink to="/blog">Blog</NavLink>
             </li>
           </ul>
         </div>
