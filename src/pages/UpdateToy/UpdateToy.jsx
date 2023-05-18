@@ -1,9 +1,23 @@
 import React from "react";
+import Swal from "sweetalert2";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
-const AddToy = () => {
+const UpdateToy = () => {
+  const toy = useLoaderData();
+  const {
+    _id,
+    title,
+    name,
+    price,
+    category,
+    rating,
+    image,
+    quantity,
+    description,
+  } = toy;
   const { user } = useContext(AuthContext);
   const {
     register,
@@ -12,15 +26,20 @@ const AddToy = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:3000/addToy", {
-      method: "POST",
+    fetch(`http://localhost:3000/allToys/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire("Updated successfully");
+        }
+      });
   };
 
   return (
@@ -38,7 +57,7 @@ const AddToy = () => {
                   className=" input input-bordered w-full max-w-xs"
                   {...register("title")}
                   placeholder="title"
-                  defaultValue="Dino"
+                  defaultValue={title}
                 />
               </div>
 
@@ -50,7 +69,7 @@ const AddToy = () => {
                   className="input input-bordered w-full max-w-xs"
                   {...register("price", { required: true })}
                   placeholder="price"
-                  defaultValue="10"
+                  defaultValue={price}
                 />
               </div>
               <div>
@@ -61,7 +80,7 @@ const AddToy = () => {
                   className="input input-bordered w-full max-w-xs"
                   {...register("rating", { required: true })}
                   placeholder="rating"
-                  defaultValue="good"
+                  defaultValue={rating}
                 />
               </div>
               <div>
@@ -72,7 +91,7 @@ const AddToy = () => {
                   className="input input-bordered w-full max-w-xs"
                   {...register("quantity", { required: true })}
                   placeholder="quantity"
-                  defaultValue="30"
+                  defaultValue={quantity}
                 />
               </div>
               <div>
@@ -99,7 +118,7 @@ const AddToy = () => {
                   {...register("image")}
                   placeholder="image link"
                   type="url"
-                  defaultValue="https://images.unsplash.com/photo-1584844115436-473887b1e327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                  defaultValue={image}
                 />
               </div>
 
@@ -132,9 +151,10 @@ const AddToy = () => {
                 className="input input-bordered w-full max-w-xs"
                 {...register("description")}
                 placeholder="description"
+                defaultValue={description}
               />
             </div>
-            <input className="btn w-full" value="Add Toy" type="submit" />
+            <input className="btn w-full" value="Update Toy" type="submit" />
           </form>
         </div>
       </div>
@@ -142,4 +162,4 @@ const AddToy = () => {
   );
 };
 
-export default AddToy;
+export default UpdateToy;

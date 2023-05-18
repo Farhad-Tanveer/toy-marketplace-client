@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import AllToys from "./AllToys";
 
 const AllToysCard = ({ toy, handleDelete }) => {
   const { _id, title, name, price, category, image, quantity } = toy;
@@ -50,7 +52,9 @@ const AllToysCard = ({ toy, handleDelete }) => {
         {quantity}
       </td>
       <th>
-        <button className="btn btn-xs mr-2">Edit</button>
+        <Link to={`/updateToy/${_id}`}>
+          <button className="btn btn-xs mr-2">Edit</button>
+        </Link>
       </th>
       <th>
         <button className="btn btn-ghost btn-xs">View Details</button>
