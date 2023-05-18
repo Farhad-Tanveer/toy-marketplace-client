@@ -10,6 +10,8 @@ const Banner = () => {
           backgroundImage: `url(${banner})`,
           backgroundSize: "cover",
           backgroundPosition: "top",
+          borderRadius: "10px",
+          overflow: "hidden",
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
