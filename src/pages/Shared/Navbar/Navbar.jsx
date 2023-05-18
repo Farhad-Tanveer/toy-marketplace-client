@@ -5,7 +5,7 @@ import logo from "../../../assets/images/logo.png";
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 h-28">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -35,16 +35,13 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link>All Toys</Link>
+                <Link to="/alltoys">All Toys</Link>
               </li>
               <li>
-                <Link>Blog</Link>
-              </li>
-              <li>
-                <Link>Login</Link>
+                <Link to="blog">Blog</Link>
               </li>
             </ul>
           </div>
@@ -55,13 +52,13 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link>All Toys</Link>
+              <Link to="/alltoys">All Toys</Link>
             </li>
             <li>
-              <Link>Blog</Link>
+              <Link to="blog">Blog</Link>
             </li>
           </ul>
         </div>
