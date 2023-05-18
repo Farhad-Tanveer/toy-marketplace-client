@@ -2,6 +2,9 @@ import React from "react";
 import img1 from "../../../assets/images/gallery/g1.jpeg";
 import img2 from "../../../assets/images/gallery/g2.jpeg";
 import img3 from "../../../assets/images/gallery/g3.jpeg";
+import img4 from "../../../assets/images/gallery/g4.jpeg";
+import img5 from "../../../assets/images/gallery/g5.jpeg";
+import img6 from "../../../assets/images/gallery/g6.jpeg";
 
 const Gallery = () => {
   return (
@@ -28,17 +31,17 @@ const Gallery = () => {
         />
         <img
           className="w-full h-80 object-cover rounded-md"
-          src={img3}
+          src={img4}
           alt=""
         />
         <img
           className="w-full h-80 object-cover rounded-md"
-          src={img1}
+          src={img5}
           alt=""
         />
         <img
           className="w-full h-80 object-cover rounded-md"
-          src={img2}
+          src={img6}
           alt=""
         />
       </div>
