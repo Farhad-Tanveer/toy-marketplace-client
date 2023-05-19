@@ -1,8 +1,27 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import CategoryTabCard from "./CategoryTabCard";
 // import "react-tabs/style/react-tabs.css";
 
 const CategoryTab = () => {
+  const [toys, setToys] = useState([]);
+  const [activeTab, setActiveTab] = useState("T-Rex");
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/allToysByCategory/${activeTab}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setToys(data);
+        // console.log(data);
+      });
+  }, [activeTab]);
+
+  const handleTab = (tabName) => {
+    setActiveTab(tabName);
+  };
+
   return (
     <div>
       <div>
@@ -18,71 +37,50 @@ const CategoryTab = () => {
         <TabList>
           <div className="flex justify-center items-center gap-6 mt-10">
             <Tab>
-              <button className="btn btn-accent rounded-full">
+              <button
+                onClick={() => handleTab("T-Rex")}
+                className="btn btn-accent rounded-full"
+              >
                 T-Rex Dinosaur
               </button>
             </Tab>
             <Tab>
-              <button className="btn btn-accent rounded-full">
+              <button
+                onClick={() => handleTab("Daspletosaurus")}
+                className="btn btn-accent rounded-full"
+              >
                 Daspletosaurus
               </button>
             </Tab>
             <Tab>
-              <button className="btn btn-accent rounded-full">
+              <button
+                onClick={() => handleTab("Armored Triceratops")}
+                className="btn btn-accent rounded-full"
+              >
                 Armored <br /> Triceratops
               </button>
             </Tab>
           </div>
         </TabList>
         <TabPanel>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl mt-20">
-            <figure>
-              <img
-                src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
+          <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {toys.map((toy) => (
+              <CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>
+            ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl mt-20">
-            <figure>
-              <img
-                src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
+          <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {toys.map((toy) => (
+              <CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>
+            ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl mt-20">
-            <figure>
-              <img
-                src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
+          <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {toys.map((toy) => (
+              <CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>
+            ))}
           </div>
         </TabPanel>
       </Tabs>

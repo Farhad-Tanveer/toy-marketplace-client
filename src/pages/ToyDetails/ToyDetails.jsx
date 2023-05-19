@@ -32,7 +32,7 @@ const ToyDetails = () => {
             </div>
 
             <div className="divider"></div>
-            <p className=" text-6xl text-red-400">
+            <p className=" text-6xl text-accent">
               {" "}
               <span className=" mr-3">&euro;</span>
               {price}
