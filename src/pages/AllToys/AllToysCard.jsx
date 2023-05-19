@@ -57,7 +57,9 @@ const AllToysCard = ({ toy, handleDelete }) => {
         </Link>
       </th>
       <th>
-        <button className="btn btn-ghost btn-xs">View Details</button>
+        <Link to={`/toyDetails/${_id}`}>
+          <button className="btn btn-ghost btn-xs">View Details</button>
+        </Link>
       </th>
     </tr>
   );
