@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import AllToysCard from "./AllToysCard";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -41,6 +42,9 @@ const AllToys = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>DinoToy|All Toys</title>
+      </Helmet>
       <h2 className=" text-center text-3xl font-bold mt-10">
         All Toys Section
       </h2>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const ToyDetails = () => {
   const toy = useLoaderData();
@@ -20,6 +21,9 @@ const ToyDetails = () => {
   const { user } = useContext(AuthContext);
   return (
     <div>
+      <Helmet>
+        <title>DinoToy|Toy Details</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row gap-20">
           <div>

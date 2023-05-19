@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyToysRow from "./MyToysRow";
+import { Helmet } from "react-helmet-async";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -44,6 +45,9 @@ const MyToys = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>DinoToy|My Toys</title>
+      </Helmet>
       <h2 className=" text-center text-3xl font-bold mt-10">
         All Toys Section
       </h2>
