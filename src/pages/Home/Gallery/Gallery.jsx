@@ -10,10 +10,10 @@ const Gallery = () => {
   return (
     <div>
       <div className=" text-center my-20">
-        <h1 className=" text-3xl font-bold">Dinosaur</h1>
+        <h1 className=" text-6xl font-bold tracking-wide">Dinosaur</h1>
         <div className=" my-10 w-1/2 mx-auto h-8 bg-yellow-500"></div>
       </div>
-      <div className=" grid grid-cols-3 gap-2">
+      <div className=" grid lg:grid-cols-3 gap-2">
         <img
           className="w-full h-80 object-cover  rounded-md"
           src={img1}
