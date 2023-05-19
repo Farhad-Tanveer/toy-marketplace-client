@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import { FaStar, FaHamburger, FaHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const ToyDetails = () => {
@@ -14,6 +14,7 @@ const ToyDetails = () => {
     rating,
     image,
     quantity,
+    email,
     description,
   } = toy;
   const { user } = useContext(AuthContext);
@@ -25,8 +26,11 @@ const ToyDetails = () => {
             <img src={image} className="max-w-lg rounded-lg shadow-2xl" />
           </div>
           <div>
-            <h1 className="text-5xl font-bold">{title}</h1>
-            <p>{category}</p>
+            <div>
+              <h1 className="text-5xl font-bold">{title}</h1>
+              <p>{category}</p>
+            </div>
+
             <div className="divider"></div>
             <p className=" text-6xl text-red-400">
               {" "}
@@ -36,7 +40,24 @@ const ToyDetails = () => {
             <div className="divider"></div>
             <h1 className=" text-lg font-bold">DETAILS</h1>
             <p className="pt-2 pb-6">{description}</p>
-            <button className="btn btn-primary">Get Started</button>
+            <div className="flex gap-4 my-3">
+              <div className="flex gap-2  items-center">
+                <p>
+                  <span className="font-bold">Seller Name:</span> {name}
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <p>
+                  <span className="font-bold">Seller Email:</span> {email}
+                </p>
+              </div>
+            </div>
+            <div className="card-actions flex justify-between">
+              <div className="flex justify-center items-center gap-2 border border-black rounded p-3">
+                <FaHeart color="tomato"></FaHeart>
+                <p>{rating}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
