@@ -55,6 +55,7 @@ const AddToy = () => {
                     className="input input-bordered w-full max-w-xs"
                     {...register("price", { required: true })}
                     placeholder="price"
+                    type="number"
                     defaultValue="10"
                   />
                 </div>
