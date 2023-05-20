@@ -8,6 +8,8 @@ import img6 from "../../../assets/images/gallery/g6.jpeg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import dino from "./dino.json";
+import Lottie from "lottie-react";
 
 const Gallery = () => {
   useEffect(() => {
@@ -16,9 +18,13 @@ const Gallery = () => {
   return (
     <div>
       <div className=" text-center my-20">
+        <div className=" w-32 inline-block">
+          <Lottie animationData={dino}></Lottie>
+        </div>
         <h1 className=" text-6xl font-bold tracking-wide" data-aos="zoom-in">
           Dinosaur
         </h1>
+
         <div className=" my-10 w-1/2 mx-auto h-8 bg-yellow-500"></div>
       </div>
       <div className=" grid lg:grid-cols-3 gap-2">
