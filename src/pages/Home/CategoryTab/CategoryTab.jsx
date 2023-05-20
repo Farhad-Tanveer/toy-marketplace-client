@@ -10,7 +10,9 @@ const CategoryTab = () => {
   const [activeTab, setActiveTab] = useState("T-Rex");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/allToysByCategory/${activeTab}`)
+    fetch(
+      `https://toy-marketplace-server-navy.vercel.app/allToysByCategory/${activeTab}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

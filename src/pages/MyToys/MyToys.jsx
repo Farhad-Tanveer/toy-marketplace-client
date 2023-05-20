@@ -12,7 +12,7 @@ const MyToys = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/allToy/${user.email}`)
+    fetch(`https://toy-marketplace-server-navy.vercel.app/allToy/${user.email}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -28,7 +28,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/allToys/${id}`, {
+        fetch(`https://toy-marketplace-server-navy.vercel.app/allToys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

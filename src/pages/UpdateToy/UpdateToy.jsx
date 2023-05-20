@@ -27,7 +27,7 @@ const UpdateToy = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:3000/allToys/${_id}`, {
+    fetch(`https://toy-marketplace-server-navy.vercel.app/allToys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
