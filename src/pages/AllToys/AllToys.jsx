@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetch("https://toy-marketplace-server-navy.vercel.app/allToys")
@@ -14,6 +15,16 @@ const AllToys = () => {
       .then((data) => setToys(data));
   }, []);
 
+  const handleSearch = () => {
+    fetch(
+      `https://toy-marketplace-server-navy.vercel.app/getToysByText/${searchText}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setToys(data);
+      });
+  };
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -48,6 +59,16 @@ const AllToys = () => {
       <h2 className=" text-center text-3xl font-bold mt-10">
         All Toys Section
       </h2>
+      <div className=" text-center mt-5">
+        <input
+          onChange={(e) => setSearchText(e.target.value)}
+          type="text"
+          className="p-1 input input-bordered"
+        />{" "}
+        <button className="btn" onClick={handleSearch}>
+          Search
+        </button>
+      </div>
       <div className="overflow-x-auto w-full mt-20">
         <table className="table w-full">
           {/* head */}

@@ -48,9 +48,7 @@ const MyToys = () => {
       <Helmet>
         <title>DinoToy|My Toys</title>
       </Helmet>
-      <h2 className=" text-center text-3xl font-bold mt-10">
-        All Toys Section
-      </h2>
+      <h2 className=" text-center text-3xl font-bold mt-10">My Toys Section</h2>
       <div className="overflow-x-auto w-full mt-20">
         <table className="table w-full">
           {/* head */}
@@ -67,6 +65,7 @@ const MyToys = () => {
               <th></th>
             </tr>
           </thead>
+
           <tbody>
             {toys.map((toy) => (
               <MyToysRow
